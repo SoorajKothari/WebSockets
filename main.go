@@ -31,6 +31,7 @@ func socketHandler(writer ResponseWriter, request *Request) {
 		log.Printf("Recieved message  : %s\n", message)
 
 		reply := "Got it " + connection.LocalAddr().String() + " " + string(message)
+
 		err = connection.WriteMessage(messageType, []byte(reply))
 
 		if err != nil {
